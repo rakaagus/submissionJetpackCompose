@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">SubmissionJetpackCompose</string>
+    <string name="app_name">Warceng Coffee App</string>
+    <string name="search_title">Search Menu You want</string>
+    <string name="menu_price">%dK</string>
 </resources>
