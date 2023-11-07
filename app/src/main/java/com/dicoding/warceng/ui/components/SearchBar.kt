@@ -2,7 +2,7 @@ package com.dicoding.warceng.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,8 +19,6 @@ import androidx.compose.ui.unit.dp
 import com.dicoding.warceng.R
 import com.dicoding.warceng.ui.theme.LightGray
 import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
-import com.dicoding.warceng.ui.theme.coffeeColor
-import com.dicoding.warceng.ui.theme.lightCoffee
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,9 +46,10 @@ fun SearchBar(
         placeholder = {
             Text(text = stringResource(id = R.string.search_title))
         },
-        shape = MaterialTheme.shapes.small,
+        shape = RoundedCornerShape(10.dp),
         modifier = modifier
-            .heightIn(min = 48.dp)
+            .fillMaxWidth()
+            .heightIn(min = 50.dp)
     ) {
 
     }

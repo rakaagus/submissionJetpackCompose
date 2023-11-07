@@ -123,14 +123,14 @@ fun HomeContent(
                 Modifier.padding(top = 15.dp)
             ) {
                 Row{
-                    CategoriesItem(image = R.drawable.menu_1, title = "Drink")
+                    CategoriesItem(image = R.drawable.category_drink, title = "Drink")
                     Spacer(modifier = Modifier.width(5.dp))
-                    CategoriesItem(image = R.drawable.menu_1, title = "Desert")
+                    CategoriesItem(image = R.drawable.category_dessert, title = "Desert")
                 }
                 Row(Modifier.padding(top = 10.dp)){
-                    CategoriesItem(image = R.drawable.menu_1, title = "Food")
+                    CategoriesItem(image = R.drawable.category_food, title = "Food")
                     Spacer(modifier = Modifier.width(5.dp))
-                    CategoriesItem(image = R.drawable.menu_1, title = "Appetizer")
+                    CategoriesItem(image = R.drawable.category_appitizer, title = "Appetizer")
                 }
             }
         }

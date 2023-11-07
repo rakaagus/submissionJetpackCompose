@@ -29,7 +29,9 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.dicoding.warceng.ui.navigation.NavigationItem
 import com.dicoding.warceng.ui.navigation.Screen
+import com.dicoding.warceng.ui.screen.cart.CartScreen
 import com.dicoding.warceng.ui.screen.home.HomeScreen
+import com.dicoding.warceng.ui.screen.profile.ProfileScreen
 import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
 
 @Composable
@@ -121,10 +123,15 @@ fun JetWarcengApp(
                 })
             }
             composable(Screen.Cart.route) {
-
+                val content = LocalContext.current
+                CartScreen(
+                    onOrderButtonClicked = {message->
+                        shareOrder(content, message)
+                    }
+                )
             }
             composable(Screen.Profile.route) {
-
+                ProfileScreen()
             }
         }
     }
