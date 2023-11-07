@@ -29,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.dicoding.warceng.ui.navigation.NavigationItem
 import com.dicoding.warceng.ui.navigation.Screen
+import com.dicoding.warceng.ui.screen.home.HomeScreen
 import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
 
 @Composable
@@ -48,9 +49,9 @@ fun BottomBar(
                 screen = Screen.Home
             ),
             NavigationItem(
-                title = stringResource(id = R.string.menu_fav),
-                icon = Icons.Default.Favorite,
-                screen = Screen.Favorite
+                title = stringResource(id = R.string.menu_cart),
+                icon = Icons.Default.ShoppingCart,
+                screen = Screen.Cart
             ),
             NavigationItem(
                 title = stringResource(id = R.string.menu_about),
@@ -115,9 +116,11 @@ fun JetWarcengApp(
             modifier = Modifier.padding(innerPadding),
         ) {
             composable(Screen.Home.route) {
-
+                HomeScreen(navigateToDetail = {menuId->
+                    navController.navigate(Screen.DetailMenu.createRoute(menuId))
+                })
             }
-            composable(Screen.Favorite.route) {
+            composable(Screen.Cart.route) {
 
             }
             composable(Screen.Profile.route) {

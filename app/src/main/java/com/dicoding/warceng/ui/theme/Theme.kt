@@ -17,10 +17,10 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = coffeeColor,
-    secondary = coffeeColor,
-    secondaryContainer = coffeeColor,
-    onSecondaryContainer = lightCoffee,
+    primary = lightCoffee,
+    secondary = lightCoffee,
+    secondaryContainer = lightCoffee,
+    onSecondaryContainer = coffeeColor,
     onSurface = lightCoffee,
     onSurfaceVariant = lightCoffee
 )
@@ -32,7 +32,7 @@ private val LightColorScheme = lightColorScheme(
     secondaryContainer = lightCoffee,
     onSecondaryContainer = coffeeColor,
     onSurface = coffeeColor,
-    onSurfaceVariant = LightGray,
+    onSurfaceVariant = Background,
 
 
     /* Other default colors to override

@@ -14,9 +14,13 @@ import androidx.compose.material3.SearchBar
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Text
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dicoding.warceng.R
 import com.dicoding.warceng.ui.theme.LightGray
+import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
+import com.dicoding.warceng.ui.theme.coffeeColor
+import com.dicoding.warceng.ui.theme.lightCoffee
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,11 +49,20 @@ fun SearchBar(
             Text(text = stringResource(id = R.string.search_title))
         },
         shape = MaterialTheme.shapes.small,
-        modifier = Modifier
-            .padding(24.dp)
-            .fillMaxWidth()
+        modifier = modifier
             .heightIn(min = 48.dp)
     ) {
 
+    }
+}
+
+@Preview
+@Composable
+fun SearchBarPrev() {
+    SubmissionJetpackComposeTheme {
+        SearchBar(
+            query = "",
+            onQueryChange = {String}
+        )
     }
 }

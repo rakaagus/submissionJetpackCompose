@@ -13,4 +13,5 @@ val Pink40 = Color(0xFF7D5260)
 val coffeeColor = Color(0xFF8A6548)
 val lightCoffee = Color(0xFFC2A68C)
 
-val LightGray = Color(0xFFFAFAFA)
+val LightGray = Color(0xFFFFF9F5)
+val Background = Color(0xFFBBBBBB)
