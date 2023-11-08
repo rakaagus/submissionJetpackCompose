@@ -7,7 +7,7 @@ object FakeData {
         Menu(2, R.drawable.menu_2, "Dessert", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Burger Kenangan Dia", 10),
         Menu(3, R.drawable.menu_3, "Food", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Nasi Goreng Bumbu Harapan", 15),
         Menu(4, R.drawable.menu_4, "Food", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Spageti Tali Hubungan", 5),
-        Menu(5, R.drawable.menu_5, "Food", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Nasi Butiran Cinta + Steak Sapi Ceria", 20),
+        Menu(5, R.drawable.menu_5, "Food", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Steak Sapi Ceria + Nasi", 20),
         Menu(6, R.drawable.menu_6, "Dessert", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Kebab Rasa Sayang", 10),
         Menu(7, R.drawable.menu_7, "Appetizer", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Ice Cream Coklat Penuh Suka", 8),
         Menu(8, R.drawable.menu_8, "Appetizer", "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id es", "Fruit Benih Cinta Rasa", 15),

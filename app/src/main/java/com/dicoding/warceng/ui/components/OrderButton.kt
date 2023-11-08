@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
+import com.dicoding.warceng.ui.theme.WarcengAppTheme
 import com.dicoding.warceng.ui.theme.coffeeColor
 
 @Composable
@@ -40,7 +40,7 @@ fun OrderButton(
 @Preview
 @Composable
 fun OrderButtonPrev() {
-    SubmissionJetpackComposeTheme {
+    WarcengAppTheme {
         OrderButton(
             text = "Order",
             onClick = {}

@@ -22,6 +22,12 @@ class MenuRepository {
         return flowOf(orderMenu)
     }
 
+    fun getOrderMenuById(menuId: Long): OrderMenu {
+        return orderMenu.first {
+            it.menu.id == menuId
+        }
+    }
+
     fun updateOrderMenu(menuId: Long, newCountValue: Int): Flow<Boolean> {
         val index = orderMenu.indexOfFirst { it.menu.id == menuId }
         val result = if (index >= 0) {

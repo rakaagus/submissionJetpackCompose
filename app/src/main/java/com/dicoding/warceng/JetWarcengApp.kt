@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.Icon
@@ -16,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,9 +30,10 @@ import androidx.navigation.navArgument
 import com.dicoding.warceng.ui.navigation.NavigationItem
 import com.dicoding.warceng.ui.navigation.Screen
 import com.dicoding.warceng.ui.screen.cart.CartScreen
+import com.dicoding.warceng.ui.screen.detail.DetailScreen
 import com.dicoding.warceng.ui.screen.home.HomeScreen
 import com.dicoding.warceng.ui.screen.profile.ProfileScreen
-import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
+import com.dicoding.warceng.ui.theme.WarcengAppTheme
 
 @Composable
 fun BottomBar(
@@ -40,6 +41,7 @@ fun BottomBar(
     modifier: Modifier = Modifier
 ) {
     NavigationBar(
+        containerColor = Color.White,
         modifier = modifier
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -106,7 +108,11 @@ fun JetWarcengApp(
     val currentRoute = navBackStackEntry?.destination?.route
     Scaffold(
         bottomBar = {
-            if(currentRoute != Screen.DetailMenu.route){
+            if(currentRoute == Screen.DetailMenu.route){
+
+            }else if(currentRoute == Screen.Category.route){
+
+            }else {
                 BottomBar(navController)
             }
         },
@@ -133,6 +139,30 @@ fun JetWarcengApp(
             composable(Screen.Profile.route) {
                 ProfileScreen()
             }
+            composable(
+                route = Screen.DetailMenu.route,
+                arguments = listOf(navArgument("menuId"){
+                    type = NavType.LongType
+                })
+            ){
+                val id = it.arguments?.getLong("menuId") ?: -1L
+                DetailScreen(
+                    menuId = id,
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
+                    navigateToCart = {
+                        navController.popBackStack()
+                        navController.navigate(Screen.Cart.route){
+                            popUpTo(navController.graph.findStartDestination().id){
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                )
+            }
         }
     }
 }
@@ -140,7 +170,7 @@ fun JetWarcengApp(
 @Preview
 @Composable
 fun JetWarcengAppPreview() {
-    SubmissionJetpackComposeTheme {
+    WarcengAppTheme {
         JetWarcengApp()
     }
 }

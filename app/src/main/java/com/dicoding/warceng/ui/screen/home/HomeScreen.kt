@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -111,12 +113,13 @@ fun HomeContent(
 ) {
     Column(
         modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(
                 horizontal = 24.dp
             )
-            .verticalScroll(rememberScrollState())
     ) {
-        HeaderHome(R.drawable.menu_1)
+        HeaderHome(R.drawable.rakaagus_image)
         SearchBar(query = "", onQueryChange = {String}, modifier = Modifier.padding(top = 15.dp))
         SectionText(title = "Our Menu"){
             Column(
@@ -138,7 +141,6 @@ fun HomeContent(
             LazyRow(
                 modifier = modifier.padding(top = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
-                contentPadding = PaddingValues(horizontal = 16.dp),
             ){
                 items(orderMenu){data->
                     MenuItem(
@@ -156,7 +158,6 @@ fun HomeContent(
             LazyRow(
                 modifier = modifier.padding(top = 20.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
-                contentPadding = PaddingValues(horizontal = 16.dp),
             ){
                 items(orderMenu){data->
                     MenuItem(

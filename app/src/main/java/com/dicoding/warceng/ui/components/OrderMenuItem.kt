@@ -1,8 +1,6 @@
 package com.dicoding.warceng.ui.components
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -26,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dicoding.warceng.R
 import com.dicoding.warceng.ui.theme.LightGray
-import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
+import com.dicoding.warceng.ui.theme.WarcengAppTheme
 import com.dicoding.warceng.ui.theme.coffeeColor
 
 @Composable
@@ -101,7 +99,7 @@ fun OrderMenuItem(
 @Preview
 @Composable
 fun OrderMenuItemPrev() {
-    SubmissionJetpackComposeTheme {
+    WarcengAppTheme {
         OrderMenuItem(
             1, R.drawable.menu_1, "Coffee Mantan", 5, 0,
             onProductCountChanged = { rewardId, count -> }

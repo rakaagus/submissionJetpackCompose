@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dicoding.warceng.R
-import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
+import com.dicoding.warceng.ui.theme.WarcengAppTheme
 import com.dicoding.warceng.ui.theme.coffeeColor
 
 @Composable
@@ -59,7 +59,6 @@ fun MenuItem(
                     .fillMaxWidth()
                     .height(100.dp)
                     .clip(RoundedCornerShape(10.dp))
-
             )
             Column(modifier = Modifier.padding(10.dp)) {
                 Text(
@@ -101,12 +100,11 @@ fun MenuItem(
 @Preview
 @Composable
 fun MenuItemPrev() {
-    SubmissionJetpackComposeTheme {
+    WarcengAppTheme {
         MenuItem(
             R.drawable.menu_1,
             "Coffee Mantan",
             5,
-            Modifier.padding(10.dp)
         )
     }
 }

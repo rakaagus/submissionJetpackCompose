@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.dicoding.warceng.R
 import com.dicoding.warceng.ui.theme.LightGray
-import com.dicoding.warceng.ui.theme.SubmissionJetpackComposeTheme
+import com.dicoding.warceng.ui.theme.WarcengAppTheme
 
 @Composable
 fun CategoriesItem(
@@ -72,7 +72,7 @@ fun CategoriesItem(
 @Preview
 @Composable
 fun CategoriesItemPrev() {
-    SubmissionJetpackComposeTheme {
+    WarcengAppTheme {
         CategoriesItem(
             R.drawable.menu_1,
             "FOOD",
