@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class CartViewModel(val repository: MenuRepository): ViewModel() {
+class CartViewModel(private val repository: MenuRepository): ViewModel() {
     private val _uiState: MutableStateFlow<UiState<CartState>> = MutableStateFlow(UiState.Loading)
     val uiState: StateFlow<UiState<CartState>>
         get() = _uiState

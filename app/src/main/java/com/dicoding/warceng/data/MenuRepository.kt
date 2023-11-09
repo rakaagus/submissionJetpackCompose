@@ -22,6 +22,14 @@ class MenuRepository {
         return flowOf(orderMenu)
     }
 
+    fun getAllMenuByCategory(category: String): Flow<List<OrderMenu>>{
+        return getAllMenu().map {orderMenu->
+            orderMenu.filter { orderMenu ->
+                orderMenu.menu.type == category
+            }
+        }
+    }
+
     fun getOrderMenuById(menuId: Long): OrderMenu {
         return orderMenu.first {
             it.menu.id == menuId

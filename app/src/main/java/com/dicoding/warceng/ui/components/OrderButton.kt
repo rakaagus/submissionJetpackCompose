@@ -16,10 +16,10 @@ import com.dicoding.warceng.ui.theme.coffeeColor
 
 @Composable
 fun OrderButton(
+    modifier: Modifier = Modifier,
     text: String,
     enable: Boolean = true,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Button(
         onClick = onClick,

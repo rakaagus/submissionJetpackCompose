@@ -30,6 +30,7 @@ import androidx.navigation.navArgument
 import com.dicoding.warceng.ui.navigation.NavigationItem
 import com.dicoding.warceng.ui.navigation.Screen
 import com.dicoding.warceng.ui.screen.cart.CartScreen
+import com.dicoding.warceng.ui.screen.category.CategoryScreen
 import com.dicoding.warceng.ui.screen.detail.DetailScreen
 import com.dicoding.warceng.ui.screen.home.HomeScreen
 import com.dicoding.warceng.ui.screen.profile.ProfileScreen
@@ -124,9 +125,14 @@ fun JetWarcengApp(
             modifier = Modifier.padding(innerPadding),
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(navigateToDetail = {menuId->
-                    navController.navigate(Screen.DetailMenu.createRoute(menuId))
-                })
+                HomeScreen(
+                    navigateToDetail = { menuId->
+                        navController.navigate(Screen.DetailMenu.createRoute(menuId))
+                    },
+                    navigateToCategory = { categoryType->
+                        navController.navigate(Screen.Category.createRoute(categoryType))
+                    }
+                )
             }
             composable(Screen.Cart.route) {
                 val content = LocalContext.current
@@ -161,6 +167,23 @@ fun JetWarcengApp(
                             restoreState = true
                         }
                     }
+                )
+            }
+            composable(
+                route = Screen.Category.route,
+                arguments = listOf(navArgument("typeCategory"){
+                    type = NavType.StringType
+                })
+            ){
+                val typeCategory = it.arguments?.getString("typeCategory") ?: ""
+                CategoryScreen(
+                    category = typeCategory,
+                    navigateBack = {
+                        navController.navigateUp()
+                    },
+                    navigateToDetail = { menuId->
+                        navController.navigate(Screen.DetailMenu.createRoute(menuId))
+                    },
                 )
             }
         }

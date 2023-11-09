@@ -4,19 +4,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -29,7 +23,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -50,7 +43,8 @@ fun HomeScreen(
     viewModel: HomeViewModel = viewModel(
         factory = ViewModelFactory(Injection.provideRepository())
     ),
-    navigateToDetail: (Long) -> Unit
+    navigateToDetail: (Long) -> Unit,
+    navigateToCategory: (String) -> Unit,
 ) {
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let {uiState->
         when(uiState){
@@ -63,6 +57,7 @@ fun HomeScreen(
                     orderMenu = uiState.data,
                     modifier = modifier,
                     navigateToDetail = navigateToDetail,
+                    navigateToCategory = navigateToCategory
                 )
             }
         }
@@ -110,6 +105,7 @@ fun HomeContent(
     orderMenu: List<OrderMenu>,
     modifier: Modifier = Modifier,
     navigateToDetail: (Long) -> Unit,
+    navigateToCategory: (String) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -126,14 +122,22 @@ fun HomeContent(
                 Modifier.padding(top = 15.dp)
             ) {
                 Row{
-                    CategoriesItem(image = R.drawable.category_drink, title = "Drink")
+                    CategoriesItem(image = R.drawable.category_drink, title = "Drink", modifier = Modifier.clickable {
+                        navigateToCategory("Drink")
+                    })
                     Spacer(modifier = Modifier.width(5.dp))
-                    CategoriesItem(image = R.drawable.category_dessert, title = "Desert")
+                    CategoriesItem(image = R.drawable.category_dessert, title = "Dessert", modifier = Modifier.clickable {
+                        navigateToCategory("Dessert")
+                    })
                 }
                 Row(Modifier.padding(top = 10.dp)){
-                    CategoriesItem(image = R.drawable.category_food, title = "Food")
+                    CategoriesItem(image = R.drawable.category_food, title = "Food", modifier = Modifier.clickable {
+                        navigateToCategory("Food")
+                    })
                     Spacer(modifier = Modifier.width(5.dp))
-                    CategoriesItem(image = R.drawable.category_appitizer, title = "Appetizer")
+                    CategoriesItem(image = R.drawable.category_appitizer, title = "Appetizer", modifier = Modifier.clickable {
+                        navigateToCategory("Appetizer")
+                    })
                 }
             }
         }
@@ -149,7 +153,7 @@ fun HomeContent(
                         price = data.menu.price,
                         modifier = modifier.clickable {
                             navigateToDetail(data.menu.id)
-                        }
+                        },
                     )
                 }
             }
