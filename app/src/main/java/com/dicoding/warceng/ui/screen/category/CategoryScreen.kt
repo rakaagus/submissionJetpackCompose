@@ -49,7 +49,6 @@ fun CategoryScreen(
             is UiState.Loading -> {
                 viewModel.getMenuByCategory(category)
             }
-
             is UiState.Success -> {
                 CategoryContent(
                     orderMenu = uiState.data,
